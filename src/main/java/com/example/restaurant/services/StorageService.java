@@ -10,5 +10,5 @@ public interface StorageService {
 
     String store(MultipartFile file, String filename) throws StorageException;
 
-    Optional<Resource> loadAsResource(String id);
+    Optional<Resource> loadAsResource(String filename);
 }
