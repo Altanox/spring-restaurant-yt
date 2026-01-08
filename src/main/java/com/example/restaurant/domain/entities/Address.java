@@ -1,0 +1,33 @@
+package com.example.restaurant.domain.entities;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Address {
+    // keyword is used instead of text for when partial text is not involved. Keyword is more efficient
+    @Field(type = FieldType.Keyword)
+    private String streetNumber;
+
+    @Field(type = FieldType.Text)
+    private String streetName;
+
+    @Field(type = FieldType.Keyword)
+    private String unit;
+
+    @Field(type = FieldType.Keyword)
+    private String state;
+
+    @Field(type = FieldType.Keyword)
+    private String postalCode;
+
+    @Field(type = FieldType.Keyword)
+    private String country;
+}
