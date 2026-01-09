@@ -24,6 +24,7 @@ import java.util.Optional;
 @Slf4j
 public class FileSystemStorageService implements StorageService {
 
+    // either provide a value or default to "uploads" dir in the root of the project
     @Value("${app.storage.location:uploads}")
     private String storageLocation;
 

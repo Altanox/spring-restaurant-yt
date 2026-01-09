@@ -20,9 +20,14 @@ public class PhotoServiceImpl implements PhotoService {
     private final StorageService storageService; //StorageService service will be injected because of @RequiredArgsConstructor
 
     @Override
-    public Photo uploadPhoto(MultipartFile file) throws StorageException {
+    public Photo uploadPhoto(MultipartFile file) {
         String photoId = UUID.randomUUID().toString();
-        String url = storageService.store(file, photoId);
+        String url;
+        try {
+            url = storageService.store(file, photoId);
+        } catch (StorageException e) {
+            throw new RuntimeException(e);
+        }
         return Photo.builder()
                 .url(url)
                 .uploadDate(LocalDateTime.now())
