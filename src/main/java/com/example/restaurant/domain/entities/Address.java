@@ -23,6 +23,9 @@ public class Address {
     private String unit;
 
     @Field(type = FieldType.Keyword)
+    private String city;
+
+    @Field(type = FieldType.Keyword)
     private String state;
 
     @Field(type = FieldType.Keyword)

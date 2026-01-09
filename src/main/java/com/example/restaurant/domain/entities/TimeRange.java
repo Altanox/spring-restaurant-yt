@@ -17,5 +17,5 @@ public class TimeRange {
     private String openTime;
 
     @Field(type = FieldType.Keyword)
-    private String closedTime;
+    private String closeTime;
 }
